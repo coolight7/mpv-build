@@ -92,7 +92,7 @@ checkout_ffmpeg=master
 #checkout_fribidi=release
 checkout_libass=master
 checkout_libplacebo=master
-checkout_mpv=master
+checkout_mpv=mpv-xx
 
 
 checkout_all()
