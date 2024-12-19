@@ -7,4 +7,4 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-scripts/switch-branch mpv "@$1"
+scripts/switch-branch libmpv "@$1"

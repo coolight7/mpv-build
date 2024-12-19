@@ -22,7 +22,7 @@ esac
 
 echo Using mpv options: $OPTIONS "$@"
 
-cd "$BUILD"/mpv
+cd "$BUILD"/libmpv
 
 # add missing private dependencies from libass.pc
 # this is necessary due to the hybrid static / dynamic nature of the build

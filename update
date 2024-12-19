@@ -1,11 +1,14 @@
 #!/bin/sh
 export LC_ALL=C
 
+echo $http_proxy
+echo $https_proxy
+
 do_clone()
 {
     set -ex
     if ! test -e "$1" ; then
-        git clone "$2" "$1"
+        git clone "$2" "$1" --depth 1
     fi
     (
         cd "$1"
@@ -21,7 +24,7 @@ do_clone_all()
     #do_clone "fribidi"    "http://anongit.freedesktop.org/git/fribidi/fribidi.git"
     do_clone "libass"     "https://github.com/libass/libass.git"
     do_clone "libplacebo" "https://github.com/haasn/libplacebo.git"
-    do_clone "mpv"        "https://github.com/mpv-player/mpv.git"
+    do_clone "libmpv"        "https://github.com/coolight7/mpv.git"
 }
 
 do_gitmaster()
@@ -49,7 +52,7 @@ do_releasetag()
     local prefix=  # by default, don't use a prefix
     case "$1" in
         ffmpeg) prefix=n;;  # e.g. n3.3.1
-        mpv|libplacebo)    prefix=v;;  # e.g. v0.26.0
+        libmpv|libplacebo)    prefix=v;;  # e.g. v0.26.0
     esac
 
     (
@@ -100,7 +103,7 @@ checkout_all()
     #$checkout fribidi $checkout_fribidi
     checkout libass $checkout_libass
     checkout libplacebo $checkout_libplacebo
-    checkout mpv $checkout_mpv
+    checkout libmpv $checkout_mpv
 }
 
 do_update_debian_versions()

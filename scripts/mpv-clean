@@ -1,5 +1,5 @@
 #!/bin/sh
-test -e mpv || exit 0
+test -e libmpv || exit 0
 
-cd mpv
+cd libmpv
 rm -rf build
